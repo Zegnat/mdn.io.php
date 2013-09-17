@@ -13,10 +13,11 @@
 	);
 
 	foreach ($defaults as $var => $default) {
+		$$var = $default;
 		if (isset($_ENV[$var])) {
 			$$var = $_ENV[$var];
-		} else {
-			$$var = $default;
+		} elseif (isset($_SERVER[$var])) {
+			$$var = $_SERVER[$var];
 		}
 	}
 
@@ -26,7 +27,7 @@
 	                                                      : $serviceURLs[$defaults['SERVICE']])
 	                     . urlencode($query.' site:'.$SEARCH_DOMAIN);
 
-	file_put_contents("php://stdout", sprintf(
+	if (php_sapi_name() === 'cli-server') file_put_contents('php://stdout', sprintf(
 		"%s => %s\n",
 		empty($query) ? '(empty query)' : $query,
 		$url
