@@ -10,7 +10,7 @@
 		'SERVICE' => 'google',
 		'SEARCH_DOMAIN' => 'developer.mozilla.org',
 		'FALLBACK_URL' => 'https://developer.mozilla.org/en-US/docs/JavaScript'
-	)
+	);
 
 	foreach ($defaults as $var => $default) {
 		if (isset($_ENV[$var])) {
