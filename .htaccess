@@ -1,0 +1,7 @@
+# Using DuckDuckGo to search php.net:
+# SetEnv SERVICE ddg
+# SetEnv SEARCH_DOMAIN php.net
+# SetEnv FALLBACK_URL http://php.net/
+
+RewriteEngine on
+RewriteRule ^ server.php [L]
