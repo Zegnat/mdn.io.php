@@ -18,6 +18,16 @@
 			$$var = $_ENV[$var];
 		} elseif (isset($_SERVER[$var])) {
 			$$var = $_SERVER[$var];
+		} else {
+			$__ENV = array_change_key_case($_ENV, CASE_UPPER);
+			if (isset($__ENV[$var])) {
+				$$var = $__ENV[$var];
+			} else {
+				$__SERVER = array_change_key_case($_SERVER, CASE_UPPER);
+				if (isset($__SERVER[$var])) {
+					$$var = $__SERVER[$var];
+				}
+			}
 		}
 	}
 
