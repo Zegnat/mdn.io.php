@@ -9,7 +9,7 @@
 	$defaults = array(
 		'SERVICE' => 'google',
 		'SEARCH_DOMAIN' => 'developer.mozilla.org',
-		'FALLBACK_URL' => 'https://developer.mozilla.org/en-US/docs/JavaScript'
+		'FALLBACK_URL' => 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
 	);
 
 	foreach ($defaults as $var => $default) {
